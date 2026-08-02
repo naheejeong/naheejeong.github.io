@@ -1,0 +1,66 @@
+:root {
+  --color-bg: #ffffff;
+  --color-ink: #1c2230;
+  --color-body: #3c4250;
+  --color-muted-1: #454b58;
+  --color-muted-2: #5b6270;
+  --color-muted-3: #7a8290;
+  --color-border: #e1e4e9;
+  --color-accent: #003262;
+  --color-accent-hover: #001d3d;
+  --color-accent-tint: #e6eef5;
+  --color-gold: #a67c0a;
+  --color-gold-tint: #fbeecb;
+  --color-section-tint: #fbf3de;
+  --color-divider: #ccd2da;
+  --color-selection: #dce8f2;
+
+  --font-heading: 'DM Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+
+  --page-max-width: 1080px;
+  --page-padding: 48px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-selection);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-padding: 24px;
+  }
+}
