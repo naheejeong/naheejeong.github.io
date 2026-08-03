@@ -14,12 +14,46 @@
   --color-section-tint: #fbf3de;
   --color-divider: #ccd2da;
   --color-selection: #dce8f2;
+  --color-nav-bg: rgba(255, 255, 255, 0.9);
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(43, 36, 29, 0.1);
+  --color-placeholder-bg: #f4f4f6;
 
   --font-heading: 'DM Sans', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
 
   --page-max-width: 1080px;
   --page-padding: 48px;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #12151c;
+  --color-ink: #f0f2f5;
+  --color-body: #c7cbd4;
+  --color-muted-1: #9aa1ad;
+  --color-muted-2: #838a97;
+  --color-muted-3: #6b7280;
+  --color-border: #2a2f3a;
+  --color-accent: #7ab0e8;
+  --color-accent-hover: #a4cbf2;
+  --color-accent-tint: #1b2836;
+  --color-gold: #e0b45c;
+  --color-gold-tint: #332811;
+  --color-section-tint: #211d12;
+  --color-divider: #3a3f4a;
+  --color-selection: rgba(122, 176, 232, 0.25);
+  --color-nav-bg: rgba(18, 21, 28, 0.85);
+  --color-card-bg: #181c25;
+  --color-card-shadow: rgba(0, 0, 0, 0.35);
+  --color-placeholder-bg: #1b1f28;
+}
+
+body,
+.nav,
+.hero__photo,
+.hobby__photo,
+.footer__icon {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 * {

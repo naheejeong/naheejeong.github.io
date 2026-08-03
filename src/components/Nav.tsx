@@ -1,5 +1,6 @@
 import type { MouseEvent } from 'react';
 import { scrollToId } from '../utils/scroll';
+import { ThemeToggle } from './ThemeToggle';
 
 const LINKS = [
   { href: '#research', label: 'Research' },
@@ -30,6 +31,7 @@ export function Nav() {
             </a>
           );
         })}
+        <ThemeToggle />
       </div>
     </nav>
   );
