@@ -1,6 +1,6 @@
 import { EmailIcon, GitHubIcon, LinkedInIcon } from './Icons';
 
-const EMAIL = 'nahee.jeong@berkeley.edu';
+const EMAIL = 'naheejeong@berkeley.edu';
 const GITHUB_URL = 'https://github.com/naheejeong';
 const LINKEDIN_URL = 'https://linkedin.com/in/naheejeong';
 
@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer id="contact" className="footer">
       <div className="footer__bar" />
-      <h2 className="footer__title">Let's talk</h2>
+      <h2 className="footer__title">Let's Chat!</h2>
       <p className="footer__desc">
         Open to research collaborations, internships, and conversation about whatever's on this
         page.

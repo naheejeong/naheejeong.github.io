@@ -85,6 +85,19 @@ export const personalProjects: Project[] = [
     status: 'Side project',
     links: [{ label: 'Code', url: '#' }],
   },
+  {
+    id: 'p4',
+    title: 'Personal Portfolio Website',
+    description:
+      "This site — a single-page React and TypeScript build for tracking my research, projects, and hobbies in one place, deployed to GitHub Pages. Built with Vite and plain CSS, with a typed data layer so new projects are a one-file edit.",
+    tags: ['React', 'TypeScript', 'Vite'],
+    date: 'Ongoing',
+    status: 'Side project',
+    links: [
+      { label: 'Site', url: 'https://naheejeong.github.io' },
+      { label: 'Code', url: 'https://github.com/naheejeong/naheejeong.github.io' },
+    ],
+  },
 ];
 
 export const classProjects: Project[] = [
