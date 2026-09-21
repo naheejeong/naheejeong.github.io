@@ -3,6 +3,18 @@ export interface ProjectLink {
   url: string;
 }
 
+export interface ProjectDetailSection {
+  heading: string;
+  paragraphs?: string[];
+  items?: string[];
+  ordered?: boolean;
+}
+
+export interface ProjectDetails {
+  subtitle?: string;
+  sections: ProjectDetailSection[];
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -11,6 +23,7 @@ export interface Project {
   date: string;
   status: string;
   links: ProjectLink[];
+  details?: ProjectDetails;
 }
 
 // TODO: replace with real projects, dates, tags, and links before publishing.
@@ -52,6 +65,66 @@ export const research: Project[] = [
 ];
 
 export const personalProjects: Project[] = [
+  {
+    id: 'p0',
+    title: 'Automated Attendance Pipeline',
+    description:
+      "An internal tool I built as Head TA for UC Berkeley's CS10. It merges five iClicker exports, the roster, and two Google Forms into one accurate, explainable attendance record per student, then emails each student an itemized report.",
+    tags: ['Python', 'Google Sheets', 'Apps Script'],
+    date: 'Fall 2026',
+    status: 'Internal tool',
+    links: [],
+    details: {
+      subtitle: "Internal tool for UC Berkeley's CS10 course staff (Fall 2026)",
+      sections: [
+        {
+          heading: 'Overview',
+          paragraphs: [
+            'As Head TA for CS10, I built an internal tool that turns raw attendance data into one accurate, explainable record for every student. Attendance comes from five separate iClicker exports (lecture, two labs, two discussions), and it has to be combined with the enrollment roster, a late-add form, and an attendance-waiver form before anyone can say how many absences a student has, whether they have passes left, or whether their exam retakes are locked. Doing this by hand for 175 students across a dozen recurring sessions is slow and easy to get wrong.',
+            'The tool does it with a couple of commands and produces a staff-only Google Sheet. It can also write a personalized status email to each student showing exactly which sessions counted against them and why.',
+          ],
+        },
+        {
+          heading: 'Key features',
+          items: [
+            'One record per student: absences, passes used and left, retake lock status, and a full absence-by-absence audit trail.',
+            'Applies the course policy exactly: it merges lab and discussion sections, honors excused absences, late-add start dates, and attendance waivers, and assigns passes in date order. Nothing is guessed. Anything the data cannot support is flagged for a human to review, and no number is changed silently.',
+            'Fully recomputed on every run from the source files, so a correction made in iClicker or a form shows up in the next run. No stale state, and the same inputs always give the same output.',
+            "Built-in safety checks: it stops on malformed or missing input, cross-checks iClicker's own totals, catches an export column that is dated a day off, and warns if an older export is imported by mistake.",
+            'Personalized emails for every student, generated from an editable template. Each one lists the exact date, time, and type of every counted absence and every session that did not count, and refuses to generate if the list and the count disagree.',
+            'Send-safety in Google Apps Script: test mode, small-batch-first sending, a permanent send log, and guards that stop a student from being emailed twice or a batch from being sent from the wrong tab.',
+            'Privacy by design: student data stays out of version control, the repository is private, the Sheet is view-only for named staff, and the automated tests use only invented students.',
+          ],
+        },
+        {
+          heading: 'Pipeline',
+          ordered: true,
+          items: [
+            'Export the five iClicker courses, the bCourses roster, and the two Google Form responses.',
+            'A Python pipeline validates and merges everything, applies the attendance policy, and writes a multi-tab workbook (student summary, attendance grid, absence details, waivers, warnings, and data-quality checks).',
+            'Import the workbook into Google Sheets as a staff-only dashboard.',
+            'Optionally generate one personalized email draft per student from a template.',
+            'Send from a Google Sheet with Apps Script: test to myself first, then a small batch, then everyone, with every send logged.',
+          ],
+        },
+        {
+          heading: 'Impact',
+          items: [
+            'Tracked 208 people across 12 session slots and five data sources, with results I could trust: an independent re-implementation of the rules matched the tool for every student, and a suite of 70+ automated tests (including deliberate rule-breaking checks) guards the logic.',
+            'Gave staff one clear place to see who is at risk, instead of piecing it together from five exports and two forms.',
+            'Sent a personalized, itemized attendance report to all 175 enrolled students in a single session (the final batch of 165 went out in about four minutes), each with a clear way to report a mistake, so errors can be fixed at the source.',
+            "Built with care for real students' records: honest about missing data, conservative about what it assumes, and hardened with safeguards (test sends, a permanent send log, duplicate-send and wrong-tab guards) after real-world use.",
+          ],
+        },
+        {
+          heading: 'Tools',
+          paragraphs: [
+            'Python 3.13, pytest, openpyxl, Google Sheets, Google Apps Script (GmailApp), Git/GitHub',
+          ],
+        },
+      ],
+    },
+  },
   {
     id: 'p1',
     title: 'Berkeley Bites',

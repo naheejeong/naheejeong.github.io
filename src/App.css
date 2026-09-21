@@ -353,6 +353,10 @@
   box-shadow: 0 14px 28px var(--color-card-shadow);
 }
 
+.card--expandable {
+  cursor: pointer;
+}
+
 .card__body {
   display: flex;
   flex-direction: column;
@@ -420,6 +424,121 @@
   gap: 12px;
   font-size: 12px;
   margin-top: 2px;
+}
+
+.card__more {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.card__more:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ---------- Project details dialog ---------- */
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.details {
+  width: min(720px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-card-bg);
+  color: var(--color-body);
+  box-shadow: 0 24px 60px var(--color-card-shadow);
+}
+
+.details::backdrop {
+  background: rgba(10, 12, 18, 0.55);
+}
+
+.details__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px 32px 32px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.details__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.details__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.details__subtitle {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--color-muted-2);
+}
+
+.details__close {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--color-muted-2);
+  cursor: pointer;
+}
+
+.details__close:hover {
+  background: var(--color-placeholder-bg);
+  color: var(--color-ink);
+}
+
+.details__section p,
+.details__section ul,
+.details__section ol {
+  margin: 0 0 8px;
+}
+
+.details__section ul,
+.details__section ol {
+  padding-left: 20px;
+}
+
+.details__section li {
+  margin-bottom: 6px;
+}
+
+.details__heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 8px 0 6px;
+}
+
+@media (max-width: 640px) {
+  .details__panel {
+    padding: 22px 20px 24px;
+  }
 }
 
 /* ---------- Hobbies ---------- */
